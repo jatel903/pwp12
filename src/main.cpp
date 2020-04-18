@@ -4,7 +4,7 @@
 #include <avr/wdt.h>
 
 // Interval zapnuteho cerpadla v sekundach
-#define RUN_INTERVAL  10
+#define RUN_INTERVAL  5
 #define STOP_INTERVAL  5
 #define RELE  8
 #define PIR  A1
@@ -21,7 +21,7 @@ inline uint16_t eepAdrGet(void);
 inline bool pirRiseEdge(void);
 inline void serialPrint(void);
 
-bool ledState, pirState = 0, ignore;
+bool ledState, pirState = true, ignore;
 uint32_t counter = 0;
 uint8_t eeIndex;
 
