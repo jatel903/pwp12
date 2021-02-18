@@ -1,16 +1,23 @@
-# Automatické ovládanie čerpadla dezinfekčnej kabíny
-### PWP12
-###### v1.0
-- Pre dosku PRESEN-FSR v1.0, ktorá je kompatibilná s Arduino NANO  
-- Použitý snímač: PIR senzor prispôsobený na tento účel. Môže sa použiť aj iný senzor, ako napr. infračervená závora.
+# PWP12
+## v1.0
+### Automatic control of the disinfection cabin pump
+###### jatel.sk
 
-### Funkčnosť programu:
-###### Program má dva režimy:
-- prevádzkový režim: DIP1-OFF
-- testovací režim: DIP1-ON  
+- For PRESEN-FSR v1.0 board, which is compatible with Arduino NANO
+- Sensor used: PIR sensor adapted for this purpose. Another sensor can be used, such as e.g. infrared barrier.
 
-###### Prevádzkový režim:
-Program reaguje na nábežnú hranu snímača PIR na vstupe 1 (A1). Po tejto hrane sa zopne relé určené na spínanie čerpadla trysiek dezinfekčnej kabíny. Zároveň sa naštartuje časovač tmrRUN ktorý je aktuálne nastavený na 5s. Po pretečení časovača sa vypne relé a spustí sa časovač tmrSTOP. Ten je aktuálne nastavený na 5s. Počas tohto intervalu program ignoruje vstupné pulzy. Je to doba na opustenie kabíny po dezinfekcii.  
-Program posiela na sériový port údaje ako názov, verzia, nastavené intervaly a počet uskutočnených dezinfekčných cýklov. Pre pripojenie k PC je potrebný prevodník USB -> RS TTL. Komunikačné parametre sú: **9600 1 N**  
-###### Testovací režim:
-V tomto režime relé kopíruje stav senzoru. Takto je možné zistiť reálne správanie senzora. 
+### Program functionality:
+
+**The program has two modes:**  
+
+- operating mode: DIP1-OFF
+- test mode: DIP1-ON
+
+**Operating mode:**  
+
+The program responds to the leading edge of the PIR sensor at input 1 (A1). After this edge, the relay intended for switching the pump of the disinfection cabin nozzles is switched on. At the same time, the timer tmrRUN is started, which is currently set to 5s. After the timer overflows, the relay turns off and the tmrSTOP timer starts. It is currently set to 5s. During this interval, the program ignores the input pulses. It's time to leave the cabin after disinfection.
+The program sends data to the serial port such as name, version, set intervals and the number of disinfection cycles performed. A USB -> RS TTL converter is required to connect to a PC. Communication parameters are: ** 9600 1 N **
+
+**Test mode:**  
+
+In this mode, the relay copies the status of the sensor. In this way, it is possible to determine the real behavior of the sensor.
